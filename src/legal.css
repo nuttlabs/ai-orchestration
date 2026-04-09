@@ -1,0 +1,278 @@
+:root {
+  --font-ui: 'Google Sans Flex', -apple-system, BlinkMacSystemFont, sans-serif;
+
+  --border-medium: rgba(0, 0, 0, 0.12);
+  --border-subtle: rgba(0, 0, 0, 0.08);
+
+  --ls-tight:    -0.01em;
+  --ls-tighter:  -0.02em;
+  --lh-body:     1.65;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: var(--font-ui);
+  background: #ffffff;
+  color: #000000;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* =============================================
+   HEADER
+   ============================================= */
+.legal-header {
+  position: sticky;
+  top: 0;
+  z-index: 10;
+  background: #ffffff;
+  padding: 22px;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+}
+
+.legal-logo {
+  display: block;
+  width: 108px;
+  height: auto;
+  margin: 0 auto;
+}
+
+/* =============================================
+   MAIN CONTENT
+   ============================================= */
+.legal-main {
+  padding: 80px 32px 120px;
+}
+
+.legal-inner {
+  max-width: 680px;
+  margin: 0 auto;
+}
+
+/* =============================================
+   TITLE BLOCK
+   ============================================= */
+.legal-title-block {
+  margin-bottom: 0;
+  padding-bottom: 30px;
+  border-bottom: 1px solid var(--border-medium);
+}
+
+.legal-title {
+  font-size: 48px;
+  font-weight: 600;
+  letter-spacing: var(--ls-tighter);
+  line-height: 1.1;
+  margin-bottom: 18px;
+}
+
+.legal-effective {
+  font-size: 14px;
+}
+
+/* =============================================
+   INTRO (ToU only)
+   ============================================= */
+.legal-intro {
+  font-size: 17px;
+  line-height: var(--lh-body);
+  margin-bottom: 16px;
+}
+
+.legal-title-block + .legal-intro {
+  margin-top: 30px;
+}
+
+.legal-intro-list {
+  font-size: 17px;
+  line-height: var(--lh-body);
+  padding-left: 22px;
+  margin-bottom: 16px;
+}
+
+.legal-intro-list li {
+  margin-bottom: 6px;
+}
+
+.legal-intro-list + .legal-intro {
+  margin-bottom: 0;
+}
+
+.legal-intro:last-of-type {
+  margin-bottom: 30px;
+}
+
+/* =============================================
+   ACCORDION (ToU)
+   ============================================= */
+.accordion {
+  border-top: 1px solid var(--border-medium);
+}
+
+.accordion:last-child {
+  border-bottom: 1px solid var(--border-medium);
+}
+
+.accordion-trigger {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 30px 0;
+  background: none;
+  border: none;
+  cursor: pointer;
+  font-family: var(--font-ui);
+  font-size: 22px;
+  font-weight: 600;
+  letter-spacing: var(--ls-tighter);
+  color: #000000;
+  text-align: left;
+  gap: 16px;
+}
+
+.accordion-trigger:hover .accordion-label {
+  opacity: 0.7;
+}
+
+.accordion-icon {
+  flex-shrink: 0;
+  width: 16px;
+  height: 16px;
+  position: relative;
+}
+
+.accordion-icon::before,
+.accordion-icon::after {
+  content: '';
+  position: absolute;
+  background: #000000;
+  border-radius: 1px;
+  transition: transform 0.2s ease, opacity 0.2s ease;
+}
+
+/* Horizontal bar */
+.accordion-icon::before {
+  width: 14px;
+  height: 1.5px;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+/* Vertical bar — hidden when expanded */
+.accordion-icon::after {
+  width: 1.5px;
+  height: 14px;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.accordion-trigger[aria-expanded="true"] .accordion-icon::after {
+  transform: translate(-50%, -50%) rotate(90deg);
+  opacity: 0;
+}
+
+.accordion-body {
+  padding-bottom: 36px;
+}
+
+/* =============================================
+   DEFINITION LIST (ToU accordion content)
+   ============================================= */
+.legal-dl p {
+  font-size: 16px;
+  font-weight: 400;
+  line-height: var(--lh-body);
+  margin-top: 28px;
+  margin-bottom: 0;
+}
+
+.legal-dl p:first-child {
+  margin-top: 0;
+}
+
+/* =============================================
+   SECTIONS (Privacy page)
+   ============================================= */
+.legal-section {
+  padding: 30px 0;
+  border-top: 1px solid var(--border-subtle);
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.legal-section:last-child {
+  border-bottom: 1px solid var(--border-subtle);
+}
+
+.legal-h2 {
+  font-size: 22px;
+  font-weight: 600;
+  letter-spacing: var(--ls-tighter);
+  margin-bottom: 4px;
+}
+
+.legal-section p {
+  font-size: 16px;
+  line-height: var(--lh-body);
+}
+
+.legal-ul {
+  list-style: disc;
+  padding-left: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.legal-ul li {
+  font-size: 16px;
+  line-height: var(--lh-body);
+}
+
+/* =============================================
+   LINKS
+   ============================================= */
+a {
+  color: #000000;
+  text-decoration: underline;
+  text-underline-offset: 2px;
+}
+
+a:hover {
+  opacity: 0.6;
+}
+
+/* =============================================
+   MOBILE
+   ============================================= */
+@media (max-width: 767px) {
+  .legal-main {
+    padding: 52px 20px 80px;
+  }
+
+  .legal-title {
+    font-size: 34px;
+  }
+
+  .legal-title-block {
+    margin-bottom: 30px;
+    padding-bottom: 30px;
+  }
+
+  .accordion-trigger {
+    font-size: 19px;
+    padding: 30px 0;
+  }
+
+  .legal-h2 {
+    font-size: 19px;
+  }
+}
