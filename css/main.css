@@ -814,10 +814,6 @@ body {
     font-size: 23px;
   }
 
-  .sub-item-label {
-    font-size: 19px;
-  }
-
 /* --- HERO --- */
   .hero-bg {
     background-position: 41%;
@@ -888,7 +884,7 @@ body {
 
   /* --- WORKSHOP --- */
   .workshop-header {
-    font-size: 30px;
+    font-size: 31px;
     margin-bottom: 28px;
   }
 
