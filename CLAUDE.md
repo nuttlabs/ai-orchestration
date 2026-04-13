@@ -6,11 +6,13 @@ Notes for Claude instances working in this folder.
 
 This folder contains the source for the **AI Orchestration** landing page (part of Nutt Labs Circle). The site promotes William Nutt's Distilled AI Coaching program.
 
-Folder layout:
+Folder layout for the AI site inside `/ai`:
 
-- `src/` — the live site source: `index.html`, `main.css`, `main.js`, plus `privacy.html`, `terms.html`, and `legal.css`
-- `assets/` — images, logos, SVGs, and the OG image
-- `reference/` — reference materials (design screenshots, legal markdown drafts). Not part of the deployed site.
+- `/ai/index.html`, `/ai/privacy.html`, `/ai/terms.html` — the live HTML pages inside the site directory
+- `/ai/css/` — `main.css` (main site) and `legal.css` (privacy/terms pages)
+- `/ai/js/` — `main.js`
+- `/ai/assets/` — images, logos, SVGs, and the OG image
+- `/ai/reference/` — reference materials (design screenshots, legal markdown drafts). Not part of the deployed site.
 
 ## Deploying ("deploy the site")
 
@@ -36,7 +38,7 @@ The remote is already configured with an embedded fine-grained PAT, so `git push
 ### Example
 
 ```bash
-git add src/index.html src/main.css
+git add ai.html css/main.css
 git commit -m "$(cat <<'EOF'
 Tighten CTA fine print copy and layout
 
@@ -54,7 +56,7 @@ git push origin main
 ## Git configuration
 
 - Default branch: `main`
-- Remote: `origin` → `https://github.com/nuttlabs/ai-orchestration.git` (with embedded PAT)
+- Remote: `origin` → `https://github.com/nuttlabs/circle.git` (with embedded PAT)
 - `.gitignore` excludes `.DS_Store`, editor files, `node_modules/`, `.env*`, and build output
 
 ## Known quirks
