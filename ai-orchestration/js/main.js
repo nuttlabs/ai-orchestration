@@ -1,11 +1,23 @@
 (function () {
-  var inv = new URLSearchParams(window.location.search).get('inv');
+  var searchParams = new URLSearchParams(window.location.search);
+  var inv = searchParams.get('inv');
+  var coup = searchParams.get('coup');
+
   if (inv) localStorage.setItem('inv', inv);
-  var stored = localStorage.getItem('inv');
-  if (stored) {
+  if (coup) localStorage.setItem('coup', coup);
+
+  var storedInv = localStorage.getItem('inv');
+  var storedCoup = localStorage.getItem('coup');
+
+  if (storedInv || storedCoup) {
     document.querySelectorAll('.cta-button').forEach(function (el) {
       var url = new URL(el.href, window.location.href);
-      url.searchParams.set('client_reference_id', 'inv-' + stored);
+      if (storedInv) {
+        url.searchParams.set('client_reference_id', 'inv-' + storedInv);
+      }
+      if (storedCoup) {
+        url.searchParams.set('prefilled_promo_code', storedCoup);
+      }
       el.href = url.toString();
     });
   }
