@@ -1,22 +1,22 @@
 (function () {
   var searchParams = new URLSearchParams(window.location.search);
   var inv = searchParams.get('inv');
-  var coup = searchParams.get('coup');
+  var promo = searchParams.get('promo');
 
   if (inv) localStorage.setItem('inv', inv);
-  if (coup) localStorage.setItem('coup', coup);
+  if (promo) localStorage.setItem('promo', promo);
 
   var storedInv = localStorage.getItem('inv');
-  var storedCoup = localStorage.getItem('coup');
+  var storedPromo = localStorage.getItem('promo');
 
-  if (storedInv || storedCoup) {
+  if (storedInv || storedPromo) {
     document.querySelectorAll('.cta-button').forEach(function (el) {
       var url = new URL(el.href, window.location.href);
       if (storedInv) {
         url.searchParams.set('client_reference_id', 'inv-' + storedInv);
       }
-      if (storedCoup) {
-        url.searchParams.set('prefilled_promo_code', storedCoup);
+      if (storedPromo) {
+        url.searchParams.set('prefilled_promo_code', storedPromo);
       }
       el.href = url.toString();
     });
